@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class Component extends React.Component {
    render () {
@@ -6,5 +7,10 @@ class Component extends React.Component {
    }
 }
 
+
+Component.propTypes = {
+   val: PropTypes.string.isRequired
+}
+ 
 
 export default Component;
