@@ -1,4 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Component from './component.jsx'
 
-ReactDOM.render(<h1>ola react</h1>, document.querySelector('.app'))
+
+ReactDOM.render(<Component />, document.querySelector('.app'))
+
