@@ -1,4 +1,5 @@
-webpack = require('webpack')
+const webpack = require('webpack')
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
    entry: './src/index.jsx',
@@ -7,6 +8,11 @@ module.exports = {
       path: __dirname + '/dist'
    },
    mode: 'production',
+   optimization: {
+      minimizer: [
+        new UglifyJsPlugin()
+      ],
+   },
    module: {
       rules: [{
          test: /.jsx?$/,
@@ -20,6 +26,8 @@ module.exports = {
       }] 
    },
    plugins: [
-      new webpack.DefinePlugin({ 'process.NODE_ENV' : JSON.stringify("production" )})
+      new webpack.DefinePlugin({
+         'process.env.NODE_ENV': JSON.stringify('production')
+      })
    ]
 }
